@@ -1,0 +1,3 @@
+ESPAsyncWebServer - https://github.com/me-no-dev/ESPAsyncWebServer
+AsyncTCP - https://github.com/me-no-dev/AsyncTCP
+Arduino/ESP32 File Uploader: https://github.com/me-no-dev/arduino-esp32fs-plugin
