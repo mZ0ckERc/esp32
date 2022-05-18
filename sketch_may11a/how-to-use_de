@@ -1,0 +1,9 @@
+1. Bau den Schaltkreis. Du benötigst einen Verbaucher (z.B. eine LED) am Port G26 und G27.
+2. Füge die .zip-Bibliotheken (AsyncWebServer und AsyncTCP).
+3. Füge das Dateienhochladetool hinzu.
+4. Lade den Sketch auf deinen ESP32 hoch.
+5. Lade die restlichen Dateien mithilfe des ESP32 Sketch Data Uploaders auf den ESP32 hoch.
+6. Steck deinen ESP32 in deinen Computer ein.
+7. Verbinde dich mit dem WLAN. Du kannst die WLAN-Einstellungen im Sketch ändern. WICHTIG: DAS WIFI IST VERSTECKT.
+8. Gehe auf die IP-Adresse, die im Serial Monitor steht.
+9. Hab Spaß!
