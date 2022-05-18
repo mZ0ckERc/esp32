@@ -1,0 +1,9 @@
+1. Build the circuit. You should connect a consumer to port G26 and G27.
+2. Add the .zip libraries (AsyncWebServer and AsnycTCP).
+3. Add the File Uploader Tool.
+4. Upload the sketch to your ESP32. 
+5. Upload the other files to your ESP32 using the ESP32 Sketch Data Uploader.
+6. Plug your ESP32 in.
+7. Connect to its WiFi. You can change the WiFi settings in the Sketch. Note: THE WIFI IS HIDDEN.
+8. Visit the IP-Adress printed in the Serial monitor.
+9. Have fun!
