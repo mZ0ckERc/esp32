@@ -15,7 +15,7 @@
 
 // Replace with your network credentials
 const char* ssid     = "ESP32";
-const char* password = "GeWer5%Ad)/";
+const char* password = "pasword";
 
 const int ledPin_26 = 26, ledPin_27 = 27;
 String ledState;
