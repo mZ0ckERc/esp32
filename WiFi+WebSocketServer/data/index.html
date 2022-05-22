@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>ESP Web Server</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>ESP Web Server</title>
+  </head>
+  <body>
+    <div class="topnav">
+      <h1>ESP WebSocket Server</h1>
+    </div>
+    <div class="content">
+      <div class="card">
+        <h2>Output - GPIO 26</h2>
+        <p class="state">state: <span id="state26">%STATE26%</span></p>
+        <p><button id="btn26" class="button">Toggle</button></p>
+      </div>
+      <div class="card">
+        <h2>Output - GPIO 27</h2>
+        <p class="state">state: <span id="state27">%STATE27%</span></p>
+        <p><button id="btn27" class="button">Toggle</button></p>
+      </div>    
+    </div>
+    <script>
+      var gateway = `ws://${window.location.hostname}/ws`;
+      var websocket;
+      window.addEventListener('load', onLoad);
+      function initWebSocket() {
+        console.log('Trying to open a WebSocket connection...');
+        websocket = new WebSocket(gateway);
+        websocket.onopen    = onOpen;
+        websocket.onclose   = onClose;
+        websocket.onmessage = onMessage; // <-- add this line
+      }
+      function onOpen(event) {
+        console.log('Connection opened');
+      }
+      function onClose(event) {
+        console.log('Connection closed');
+        setTimeout(initWebSocket, 2000);
+      }
+      function onMessage(event) {
+        var state;
+        try{
+          console.log(event.data);
+          const t=JSON.parse(event.data);
+          console.log(t);
+          console.log('state'+t.l);
+          document.getElementById('state'+t.l).innerHTML = t.s;
+        } catch(e){
+          console.log(e);
+        }
+        /*if (event.data == "26" || event.data == "27"){
+          state = "ON";
+        }
+        else{
+          state = "OFF";
+        }*/
+      }
+      function onLoad(event) {
+        initWebSocket();
+        initButton();
+      }
+      function initButton() {
+        document.getElementById('btn26').addEventListener('click', toggle26);
+        document.getElementById('btn27').addEventListener('click', toggle27);
+      }
+      function toggle26(){
+        websocket.send('toggle26');
+      }
+      function toggle27(){
+        websocket.send('toggle27');
+      }
+    </script>
+  </body>
+</html>
