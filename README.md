@@ -1,4 +1,4 @@
-# Arduino
+# ESP32
 
 This respository contains some small programs for an ESP32. 
 
